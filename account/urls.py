@@ -1,6 +1,10 @@
 from django.urls import path, include
 from django.contrib.auth import views as auth_views
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+
+
 urlpatterns = [
     # path('login/', views.user_login, name='login'),
      # path('login/', auth_views.LoginView.as_view(), name='login'),
@@ -14,6 +18,7 @@ urlpatterns = [
 #          auth_views.PasswordChangeDoneView.as_view(),
 #          name='password_change_done'),
      path('register/', views.register, name='register'),
+     path('edit/', views.edit, name='edit'),
 #      path('password_reset/',
 #           auth_views.PasswordResetView.as_view(),
 #           name='password_reset'),
@@ -26,4 +31,8 @@ urlpatterns = [
 #     path('reset/done',
 #          auth_views.PasswordResetCompleteView.as_view(),
 #          name='password_reset_complete')
+
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
