@@ -4,6 +4,7 @@ from django.contrib.auth import authenticate, login
 from .forms import UserRegistrationForm, UserEditionForm, ProfileEditionForm
 from django.contrib.auth.decorators import login_required
 from .models import Profile
+from django.contrib import messages
 
 
 @login_required
@@ -16,7 +17,7 @@ def register(request):
         if user_form.is_valid():
             new_user = user_form.save(commit=False)
             new_user.set_password(user_form.cleaned_data['password'])
-            Profile.objects.create(user=new_user)
+            Profile.objects.create(user=new_user) # привязываем нашу модель профиль к вновьсозжанному юзеру
             new_user.save()
             return render(request, 'account/register_done.html',
                         {'new_user': new_user})
@@ -35,6 +36,10 @@ def edit(request):
                                           files=request.FILES)
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
+            profile_form.save()
+            messages.success(request, 'Profile updated successfully')
+        else:
+            messages.error(request, 'Error updating your profile')
     else:
         user_form = UserEditionForm(instance=request.user)
         profile_form = ProfileEditionForm(instance=request.user.profile)
