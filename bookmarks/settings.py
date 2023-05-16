@@ -32,6 +32,7 @@ LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -42,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django',  
+    'social_django', 
 ]
 
 MIDDLEWARE = [
@@ -136,9 +137,9 @@ MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
     'account.authentication.EmailAuthBackend',
-    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
+    # 'social_core.backends.facebook.FacebookOAuth2',
 ]
 
-SOCIAL_AUTH_FACEBOOK_KEY = '187496087571091'
-SOCIAL_AUTH_FACEBOOK_SECRET = 'd532d028b7163598c91196fad8b21cd8'
-SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '15220578125-h0lkqs30vajkme0kgcp103tlne35gmtg.apps.googleusercontent.com' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Consumer Secret
