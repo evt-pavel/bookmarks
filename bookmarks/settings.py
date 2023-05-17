@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'social_django', 
+    'social_django',
+    'images.apps.ImagesConfig',
 ]
 
 MIDDLEWARE = [
@@ -141,5 +142,5 @@ AUTHENTICATION_BACKENDS = [
     # 'social_core.backends.facebook.FacebookOAuth2',
 ]
 
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '15220578125-h0lkqs30vajkme0kgcp103tlne35gmtg.apps.googleusercontent.com' # Google Consumer Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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' # Google Consumer Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '###' # Google Consumer Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '###' # Google Consumer Secret
