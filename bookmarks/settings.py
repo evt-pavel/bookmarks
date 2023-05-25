@@ -26,7 +26,8 @@ SECRET_KEY = 'django-insecure-9d&g#fb4(_9=-v&-4#pfwgv3i5a$^9325-*c6$c1g^4$zk30t8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1']
+ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '36f7-151-249-162-210.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://36f7-151-249-162-210.ngrok-free.app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
