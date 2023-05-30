@@ -26,8 +26,13 @@ SECRET_KEY = 'django-insecure-9d&g#fb4(_9=-v&-4#pfwgv3i5a$^9325-*c6$c1g^4$zk30t8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', 'a9da-151-249-162-240.ngrok-free.app']
-CSRF_TRUSTED_ORIGINS = ['https://a9da-151-249-162-240.ngrok-free.app']
+if DEBUG:
+    import mimetypes
+mimetypes.add_type('application/javascript', '.js', True)
+mimetypes.add_type('text/css', '.css', True)
+
+ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '3145-151-249-166-236.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://3145-151-249-166-236.ngrok-free.app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
@@ -46,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'social_django',
     'images.apps.ImagesConfig',
+    'django_extensions',
 ]
 
 MIDDLEWARE = [
@@ -134,7 +140,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '/media/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

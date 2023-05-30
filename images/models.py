@@ -26,6 +26,6 @@ class Image(models.Model):
         return self.title
     
     def get_absolute_url(self):
-        return reverse('image:detail', args=[self.id, self.slug])
+        return reverse('images:detail', args=[self.id, self.slug])
 
 # Create your models here.

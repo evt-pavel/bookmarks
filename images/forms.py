@@ -2,7 +2,7 @@ from django import forms
 from .models import Image
 from django.core.files.base import ContentFile
 from django.utils.text import slugify
-from urllib import request
+import requests
 
 class ImageCreateForm(forms.ModelForm):
     class Meta:
@@ -12,7 +12,7 @@ class ImageCreateForm(forms.ModelForm):
 
     def clean_url(self):
         url = self.cleaned_data['url']
-        valid_extension = ['jpg', 'jpeg']
+        valid_extension = ['jpg', 'jpeg', 'png']
         extension = url.rsplit('.', 1)[1].lower()
         if extension not in valid_extension:
             raise forms.ValidationError('The given URL does not ' \
@@ -21,13 +21,14 @@ class ImageCreateForm(forms.ModelForm):
         return url
     
     def save(self, force_insert=False, force_update=False, commit=True):
-        image = super(ImageCreateForm, self).save(commit=False)
+        image = super().save(commit=False)
         image_url = self.cleaned_data['url']
-        image_name = '{}.{}'.format(
-            slugify(image.title),
-            image_url.rsplit('.', 1)[1].lower())
-        response = request.urlopen(image_url)
-        image.image.save(image_name, ContentFile(response.read()), save=False)
+        name = slugify(image.title)
+        extension = image_url.rsplit('.', 1)[1].lower()
+        image_name = f'{name}.{extension}'
+        response = requests.get(image_url)
+        image.images.save(image_name, ContentFile(response.content),
+                         save=False)
         if commit:
             image.save()
         return image
