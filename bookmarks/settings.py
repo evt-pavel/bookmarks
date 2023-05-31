@@ -31,8 +31,8 @@ if DEBUG:
 mimetypes.add_type('application/javascript', '.js', True)
 mimetypes.add_type('text/css', '.css', True)
 
-ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '3145-151-249-166-236.ngrok-free.app']
-CSRF_TRUSTED_ORIGINS = ['https://3145-151-249-166-236.ngrok-free.app']
+ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '56a7-151-249-162-250.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://56a7-151-249-162-250.ngrok-free.app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'social_django',
     'images.apps.ImagesConfig',
     'django_extensions',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -139,8 +140,8 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_URL = 'media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',
