@@ -1,4 +1,4 @@
-const siteUrl = 'https://56a7-151-249-162-250.ngrok-free.app/';
+const siteUrl = 'https://2fd5-151-249-166-136.ngrok-free.app/';
 const styleUrl = siteUrl + 'static/css/bookmarklet.css';
 const minWidth = 250;
 const minHeight = 250;

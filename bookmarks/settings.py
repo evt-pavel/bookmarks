@@ -31,8 +31,8 @@ if DEBUG:
 mimetypes.add_type('application/javascript', '.js', True)
 mimetypes.add_type('text/css', '.css', True)
 
-ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '56a7-151-249-162-250.ngrok-free.app']
-CSRF_TRUSTED_ORIGINS = ['https://56a7-151-249-162-250.ngrok-free.app']
+ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '2fd5-151-249-166-136.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://2fd5-151-249-166-136.ngrok-free.app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
