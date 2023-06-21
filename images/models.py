@@ -16,6 +16,7 @@ class Image(models.Model):
                                         related_name='images_liked',
                                         blank=True
     )
+    total_likes = models.PositiveBigIntegerField(default=0)
 
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -27,5 +28,12 @@ class Image(models.Model):
     
     def get_absolute_url(self):
         return reverse('images:detail', args=[self.id, self.slug])
+    
+    class Meta:
+        indexes = [
+            models.Index(fields=['-created']),
+            models.Index(fields=['-total_likes'])
+        ]
+        ordering = ['-created']
 
 # Create your models here.
