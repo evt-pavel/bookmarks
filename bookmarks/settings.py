@@ -60,9 +60,11 @@ INSTALLED_APPS = [
     'django_extensions',
     'easy_thumbnails',
     'actions.apps.ActionsConfig',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -159,3 +161,7 @@ AUTHENTICATION_BACKENDS = [
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '###' # Google Consumer Key
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '###' # Google Consumer Secret
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
