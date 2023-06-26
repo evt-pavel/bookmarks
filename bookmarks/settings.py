@@ -32,13 +32,14 @@ SECRET_KEY = 'django-insecure-9d&g#fb4(_9=-v&-4#pfwgv3i5a$^9325-*c6$c1g^4$zk30t8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+
 if DEBUG:
     import mimetypes
 mimetypes.add_type('application/javascript', '.js', True)
 mimetypes.add_type('text/css', '.css', True)
 
-ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '2fd5-151-249-166-136.ngrok-free.app']
-CSRF_TRUSTED_ORIGINS = ['https://2fd5-151-249-166-136.ngrok-free.app']
+ALLOWED_HOSTS = ['mysite.com', 'lockalhost', '127.0.0.1', '860c-151-249-163-187.ngrok-free.app']
+CSRF_TRUSTED_ORIGINS = ['https://860c-151-249-163-187.ngrok-free.app']
 
 LOGIN_REDIRECT_URL = 'dashboard'
 LOGIN_URL = 'login'
@@ -165,3 +166,7 @@ SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '###' # Google Consumer Secret
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+REDIS_HOST = 'localhost'
+REDIS_PORT = 6379
+REDIS_DB = 0
